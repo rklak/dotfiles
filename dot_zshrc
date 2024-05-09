@@ -95,7 +95,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
-export PATH=$PATH:$(go env GOPATH)/bin
 
 # vi mode
 bindkey -v
