@@ -8,7 +8,7 @@
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 RESET="#[fg=brightwhite,bg=#15161e,nobold,noitalics,nounderscore,nodim]"
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIME='#a3e635'
 YELLOW='#eab308'
 
@@ -41,7 +41,6 @@ window_id_style="${window_id_style:-$default_window_id_style}"
 pane_id_style="${pane_id_style:-$default_pane_id_style}"
 zoom_id_style="${zoom_id_style:-$default_zoom_id_style}"
 
-cmus_status="#($SCRIPTS_PATH/music-tmux-statusbar.sh)"
 git_status="#($SCRIPTS_PATH/git-status.sh #{pane_current_path})"
 session_colorizer="#($SCRIPTS_PATH/session.sh #S)"
 wb_git_status="#($SCRIPTS_PATH/wb-git-status.sh #{pane_current_path} &)"
@@ -60,5 +59,5 @@ tmux set -g window-status-current-format "#[fg=white,bg=#343434]  $window_number
 tmux set -g window-status-format "#[fg=gray,bg=default,none,dim]  $window_number #W  "
 
 #+--- Bars RIGHT ---+
-tmux set -g status-right "$cmus_status#[fg=white,bg=#24283B]  %Y-%m-%d #[]❬ %H:%M $git_status"
+tmux set -g status-right "#[fg=white,bg=#24283B]  %Y-%m-%d #[]❬ %H:%M $git_status"
 tmux set -g window-status-separator ""
