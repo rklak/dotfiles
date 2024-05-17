@@ -196,7 +196,8 @@ exec --no-startup-id sh $scriptspath/wallpaper.sh
 
 assign [class="Vivaldi-stable"] $ws2
 
-exec --no-startup-id "vivaldi-stable"
+# vivaldi run on startup
+# exec --no-startup-id "vivaldi-stable"
 
 # Create Log out, Reboot, Poweroff bindings
 mode "Exit (L)ogout, (R)eboot, (P)oweroff" {

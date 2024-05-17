@@ -18,7 +18,7 @@ map("n", "<leader>o", "<cmd> NvimTreeFindFile!<CR>zz", { desc = "Find file in nv
 map("n", "<leader>z", "<cmd> ZenMode <CR>", { desc = "Toggle Zen Mode" })
 
 map("n", "<leader>fr", "<cmd> Telescope lsp_references <CR>", { desc = "Telescope LSP references" })
-map("n", "<leader>fr", "<cmd> Telescope resume <CR>", { desc = "Telescope resume" })
+map("n", "<leader>fe", "<cmd> Telescope resume <CR>", { desc = "Telescope resume" })
 
 map("n", "<leader>a", function()
   require("harpoon.mark").add_file()
