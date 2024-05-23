@@ -52,7 +52,7 @@ bindsym XF86AudioMicMute     exec --no-startup-id $volumepath/volume -np -t $sta
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec "/home/linuxbrew/.linuxbrew/bin/wezterm --config-file ~/.config/wezterm/wezterm.lua"
 
 # kill focused window
 bindsym $mod+Shift+q kill
