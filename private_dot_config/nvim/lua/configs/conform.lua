@@ -7,11 +7,12 @@ local options = {
     json = { "eslint_d" },
     javascript = { "eslint_d" },
     sh = { "shfmt" },
+    go = { "goimports-reviser", "gofumpt", "golines" },
     ansible = { "ansible-lint" },
   },
   format_on_save = {
     lsp_fallback = false,
-    timeout_ms = 5000,
+    timeout_ms = 10000,
   },
 }
 
