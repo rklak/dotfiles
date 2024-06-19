@@ -1,26 +1,21 @@
+local frontend_formatter = "prettierd" -- or "eslintd" with prettier plugin
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    javascriptreact = { "eslint_d" },
-    typescript = { "eslint_d" },
-    typescriptreact = { "eslint_d" },
-    json = { "eslint_d" },
-    javascript = { "eslint_d" },
+    javascriptreact = { frontend_formatter },
+    typescript = { frontend_formatter },
+    typescriptreact = { frontend_formatter },
+    json = { frontend_formatter },
+    javascript = { frontend_formatter },
     sh = { "shfmt" },
     go = { "goimports-reviser", "gofumpt", "golines" },
     ansible = { "ansible-lint" },
+    css = { frontend_formatter },
   },
   format_on_save = {
     lsp_fallback = false,
     timeout_ms = 10000,
   },
 }
-
---vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---  pattern = "*",
---  callback = function(args)
---    require("conform").format { bufnr = args.buf }
---  end,
---})
 
 require("conform").setup(options)
