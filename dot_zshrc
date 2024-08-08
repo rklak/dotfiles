@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 zstyle :omz:plugins:keychain agents gpg,ssh
 zstyle :omz:plugins:keychain identities id_rklak C9C883263380855C
 zstyle :omz:plugins:keychain options --quiet
@@ -101,20 +101,21 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 bindkey -v
 export VI_MODE_SET_CURSOR=true
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+if [[ "$(uname)" == "Darwin" ]]; then
+  export BLJ="blueutil --connect 74:5C:4B:01:B3:8D"
+  export BLS="blueutil --connect 00:16:94:26:97:71"
+  export DBLS="blueutil --disconnect 00:16:94:26:97:71"
+elif [[ "$(uname)" == "Linux" ]]; then
+  export BLJ="bluetoothctl connect 74:5C:4B:01:B3:8D"
+  export BLS="bluetoothctl connect 00:16:94:26:97:71"
+  export DBLS="bluetoothctl disconnect 00:16:94:26:97:71"
+else
+  echo "Unsupported OS"
+fi
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias blj="bluetoothctl connect 74:5C:4B:01:B3:8D" # jabra
-alias bls="bluetoothctl connect 00:16:94:26:97:71" # sennheiser
-alias dbls="bluetoothctl disconnect 00:16:94:26:97:71" # sennheiser
+alias blj="$BLJ" # jabra
+alias bls="$BLS" # sennheiser
+alias dbls="$DBLS" # sennheiser
 alias rebls="dbls && bls" # sennheiser
 alias slu="pactl set-default-sink bluez_sink.00_16_94_26_97_71.a2dp_sink"
 alias fd=fdfind
@@ -127,6 +128,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # edit configs
 alias ezsh="nvim $HOME/.zshrc"
+alias eas="nvim $HOME/.aerospace.toml"
 alias ei3="nvim $HOME/.config/i3/config"
 alias ewt="nvim $HOME/.config/wezterm/wezterm.lua"
 alias etmux="tmuxconf"
@@ -164,6 +166,7 @@ alias nrgm="npm run generate-migration"
 
 # n-fundamentals-pro
 alias tnfp="txs nfp"
+alias pro="cd $projects"
 
 # lux
 alias tlapi="txs lapi"
@@ -188,7 +191,7 @@ alias fapi="cdoc && apii && rapi"
 
 # git
 alias glc="git log --pretty=%B"
-alias gwti="$projects/git-worktree-script/run.sh"
+alias gwti="$scripts/worktree_init.sh"
 alias gwtn="ddev && cd .. && gfo && source $scripts/gwta.sh"
 alias gwtc="$scripts/clear_worktree.sh"
 alias cam="$scripts/git_commit.sh"
@@ -206,10 +209,10 @@ alias lapon="xrandr --output eDP-1 --auto"
 
 # eza auto completion
 export FPATH="~/eza/eza/completions/zsh:$FPATH"
-alias ls='exa --grid --color auto --icons --sort=type'
-alias ll='exa --long --color always --icons --sort=type'
-alias la='exa --grid --all --color auto --icons --sort=type'
-alias lla='exa --long --all --color auto --icons --sort=type'
+alias ls='eza --grid --color auto --icons --sort=type'
+alias ll='eza --long --color always --icons --sort=type'
+alias la='eza --grid --all --color auto --icons --sort=type'
+alias lla='eza --long --all --color auto --icons --sort=type'
 
 alias jstag='while true; do
     timeout 120 ssh -i ~/rds/rds-jump-host.pem -N -L 5432:xxxxx:5432 ec2-user@ec2-xxxx.eu-west-1.compute.amazonaws.com
@@ -235,8 +238,8 @@ stty -ixon
 bindkey '^s' pet-select
 
 # chezmoi
-alias moic="cd $HOME/.local/share/chezmoi"
-alias moia="chezmoi re-add"
+alias chezmoic="cd $HOME/.local/share/chezmoi"
+alias chezmoir="chezmoi re-add"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
