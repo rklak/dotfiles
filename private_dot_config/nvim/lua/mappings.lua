@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
 map("n", "n", "nzzzv", { desc = "Keep next search matches in the middle of the window" })
 map("n", "N", "Nzzzv", { desc = "Keep previous search matches in the middle of the window" })
@@ -29,3 +30,5 @@ end, { desc = "Harpoon add file" })
 map("n", "<leader>q", function()
   require("harpoon.ui").toggle_quick_menu()
 end, { desc = "Harpoon quick menu" })
+nomap("n", "<tab>")
+nomap("n", "<S-tab>")

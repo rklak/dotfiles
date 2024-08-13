@@ -168,12 +168,14 @@ alias nrgm="npm run generate-migration"
 alias tnfp="txs nfp"
 alias pro="cd $projects"
 
+# orca
+alias toro="txs oro"
+
 # lux
 alias tlapi="txs lapi"
 alias tlsls="txs lsls"
 alias tlspa="txs lspa"
 alias lux="tlapi false && tlspa false && tlapi"
-alias lpro="cd $projects/pro"
 alias apid="cd $HOME/api/"
 alias gettoken="$scripts/token.sh"
 alias gettokenstaging="$scripts/token_staging.sh"
