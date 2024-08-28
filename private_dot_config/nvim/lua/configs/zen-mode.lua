@@ -1,8 +1,6 @@
-local options = {
+return {
   window = {
     backdrop = 1,
-    width = 140,
+    width = 0.80,
   },
 }
-
-return options

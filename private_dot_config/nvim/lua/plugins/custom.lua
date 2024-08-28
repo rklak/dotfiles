@@ -2,8 +2,8 @@ local plugins = {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
-    config = function()
-      require "configs.conform"
+    opts = function()
+      return require "configs.conform"
     end,
   },
   {
@@ -50,8 +50,8 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    config = function()
-      require "configs.zen-mode"
+    opts = function()
+      return require "configs.zen-mode"
     end,
   },
   {
@@ -60,6 +60,11 @@ local plugins = {
     opts = {
       view = {
         relativenumber = true,
+        width = 40,
+      },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
       },
     },
   },
@@ -155,6 +160,20 @@ local plugins = {
     config = function()
       require("nvim-surround").setup {}
     end,
+  },
+  {
+    "NeogitOrg/neogit",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = true,
+  },
+  {
+    "mbbill/undotree",
+    lazy = false,
   },
 }
 

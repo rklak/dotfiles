@@ -220,6 +220,9 @@ alias jstag='while true; do
     timeout 120 ssh -i ~/rds/rds-jump-host.pem -N -L 5432:xxxxx:5432 ec2-user@ec2-xxxx.eu-west-1.compute.amazonaws.com
 done'
 
+# oro
+alias ysd='yarn start:docker -d'
+
 alias pstag='pgcli postgresql://xxx --auto-vertical-output'
 
 alias pl='pgcli postgresql://postgres:password@localhost:5432/app --auto-vertical-output'

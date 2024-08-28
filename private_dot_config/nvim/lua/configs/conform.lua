@@ -2,11 +2,11 @@ local frontend_formatter = "prettierd" -- or "eslintd" with prettier plugin
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    javascriptreact = { frontend_formatter },
-    typescript = { frontend_formatter },
-    typescriptreact = { frontend_formatter },
+    -- javascriptreact = { frontend_formatter },
+    -- typescript = { frontend_formatter },
+    -- typescriptreact = { frontend_formatter },
     json = { frontend_formatter },
-    javascript = { frontend_formatter },
+    -- javascript = { frontend_formatter },
     sh = { "shfmt" },
     go = { "goimports-reviser", "gofumpt", "golines" },
     ansible = { "ansible-lint" },
@@ -18,4 +18,4 @@ local options = {
   },
 }
 
-require("conform").setup(options)
+return options
