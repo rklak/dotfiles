@@ -6,7 +6,7 @@ zstyle :omz:plugins:keychain options --quiet
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PAGER="less"
-export JIRA_URL="https://headstart.atlassian.net"
+export JIRA_URL=""
 unset NPM_CONFIG_PREFIX
 scripts="$HOME/scripts"
 projects="$HOME/projects"
@@ -172,13 +172,7 @@ alias pro="cd $projects"
 alias toro="txs oro"
 
 # lux
-alias tlapi="txs lapi"
-alias tlsls="txs lsls"
-alias tlspa="txs lspa"
-alias lux="tlapi false && tlspa false && tlapi"
-alias apid="cd $HOME/api/"
 alias gettoken="$scripts/token.sh"
-alias gettokenstaging="$scripts/token_staging.sh"
 alias rapi="$scripts/run_api.sh"
 alias rspa="$scripts/run_spa.sh"
 alias capi="$scripts/close_api.sh"

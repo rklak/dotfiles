@@ -21,14 +21,17 @@ map("n", "<leader>z", "<cmd> ZenMode <CR>", { desc = "Toggle Zen Mode" })
 map("n", "<leader>fr", "<cmd> Telescope lsp_references <CR>", { desc = "Telescope LSP references" })
 map("n", "<leader>fe", "<cmd> Telescope resume <CR>", { desc = "Telescope resume" })
 
-map("n", "<leader>lf", function()
+map("n", "<leader>di", function()
   vim.diagnostic.open_float { border = "rounded" }
 end, { desc = "LSP Floating diagnostic" })
+
 map("n", "<leader>a", function()
   require("harpoon.mark").add_file()
 end, { desc = "Harpoon add file" })
+
 map("n", "<leader>q", function()
   require("harpoon.ui").toggle_quick_menu()
 end, { desc = "Harpoon quick menu" })
+
 nomap("n", "<tab>")
 nomap("n", "<S-tab>")
