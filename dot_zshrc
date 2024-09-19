@@ -6,7 +6,7 @@ zstyle :omz:plugins:keychain options --quiet
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PAGER="less"
-export JIRA_URL=""
+export JIRA_URL="https://livesport.atlassian.net"
 unset NPM_CONFIG_PREFIX
 scripts="$HOME/scripts"
 projects="$HOME/projects"
@@ -136,8 +136,10 @@ alias envim="nvim $HOME/.config/nvim/"
 
 # global
 alias ag="alias | grep"
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+if [[ "$(uname)" == "Linux" ]]; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 alias scripting="nvim $scripts"
 alias wda='wd add -f'
 alias wdaj='wda j'
@@ -187,10 +189,10 @@ alias fapi="cdoc && apii && rapi"
 
 # git
 alias glc="git log --pretty=%B"
-alias gwti="$scripts/worktree_init.sh"
-alias gwtn="ddev && cd .. && gfo && source $scripts/gwta.sh"
-alias gwtc="$scripts/clear_worktree.sh"
-alias cam="$scripts/git_commit.sh"
+alias gwti="$scripts/worktree/worktree_init.sh"
+alias gwtn="ddev && cd .. && gfo && source $scripts/worktree/gwta.sh"
+alias gwtc="$scripts/worktree/clear_worktree.sh"
+alias cam="$scripts/worktree/git_commit.sh"
 
 # worktree
 alias ddev="source $scripts/cd_develop.sh"
@@ -216,9 +218,14 @@ done'
 
 # oro
 alias ysd='yarn start:docker -d'
+alias ysdr='dcdn && yarn start:docker -d'
 
+# dazn
+alias dao='dazn aws open'
+alias dae='dazn aws exec'
+
+# postgres
 alias pstag='pgcli postgresql://xxx --auto-vertical-output'
-
 alias pl='pgcli postgresql://postgres:password@localhost:5432/app --auto-vertical-output'
 
 # INFO: pet register the previous command

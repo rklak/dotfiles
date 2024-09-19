@@ -8,7 +8,7 @@ local servers = {
   "html",
   "cssls",
   "emmet_language_server",
-  "tailwindcss",
+  -- "tailwindcss",
   "bashls",
   "ansiblels",
 }
@@ -31,7 +31,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_init = on_init,
   on_attach = on_attach,
   capabilities = capabilities,

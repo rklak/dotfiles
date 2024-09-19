@@ -125,6 +125,7 @@ local plugins = {
   {
     "ThePrimeagen/harpoon",
     lazy = false,
+    branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = function()
       return require "configs.harpoon"

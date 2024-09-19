@@ -9,7 +9,7 @@ vim.opt.swapfile = false
 local M = {}
 
 M.ui = {
-  theme = "melange",
+  theme = "palenight",
   tabufline = {
     enabled = false,
   },
