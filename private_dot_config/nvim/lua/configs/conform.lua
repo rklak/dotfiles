@@ -10,6 +10,7 @@ local options = {
     sh = { "shfmt" },
     go = { "goimports-reviser", "gofumpt", "golines" },
     ansible = { "ansible-lint" },
+    terraform = { "terraform_fmt" },
     css = { frontend_formatter },
   },
   format_on_save = {

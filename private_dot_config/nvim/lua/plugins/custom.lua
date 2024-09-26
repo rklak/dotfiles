@@ -176,6 +176,15 @@ local plugins = {
     "mbbill/undotree",
     lazy = false,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {},
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("render-markdown").setup {}
+    end,
+    lazy = false,
+  },
 }
 
 return plugins
