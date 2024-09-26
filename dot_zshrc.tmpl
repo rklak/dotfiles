@@ -49,12 +49,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -130,11 +124,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # edit configs
-alias ezsh="nvim $HOME/.zshrc"
-alias eas="nvim $HOME/.aerospace.toml"
-alias ei3="nvim $HOME/.config/i3/config"
-alias ewt="nvim $HOME/.config/wezterm/wezterm.lua"
-alias etmux="tmuxconf"
+alias ezsh="chezmoi edit --apply $HOME/.zshrc"
+alias eas="chezmoi edit --apply $HOME/.aerospace.toml"
+alias ei3="chezmoi edit --apply $HOME/.config/i3/config"
+alias ewt="chezmoi edit --apply $HOME/.config/wezterm/wezterm.lua"
+alias etmux="chezmoi edit --apply $HOME/.tmux.conf"
 alias envim="nvim $HOME/.config/nvim/"
 
 # global
