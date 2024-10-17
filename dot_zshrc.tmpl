@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible keychain gpg-agent docker docker-compose git tmux tmuxinator vi-mode fzf wd terraform)
+plugins=(ansible keychain gpg-agent docker docker-compose git tmux tmuxinator vi-mode fzf wd terraform kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,12 +124,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # edit configs
-alias ezsh="chezmoi edit --apply $HOME/.zshrc"
+alias ezsh="chezmoi edit --apply $HOME/.zshrc && omz reload"
+alias ezshl="nvim $HOME/.zshrc_local && omz reload"
 alias eas="chezmoi edit --apply $HOME/.aerospace.toml"
 alias ei3="chezmoi edit --apply $HOME/.config/i3/config"
 alias ewt="chezmoi edit --apply $HOME/.config/wezterm/wezterm.lua"
 alias etmux="chezmoi edit --apply $HOME/.tmux.conf"
-alias envim="nvim $HOME/.config/nvim/"
+alias envim="nvim $HOME/.config/nvim/ && chezmoi re-add"
 
 # global
 alias ag="alias | grep"
@@ -161,9 +162,11 @@ alias nrc="npm run coverage"
 alias nrrm="npm run run-migrations"
 alias nrgm="npm run generate-migration"
 
-# n-fundamentals-pro
-alias tnfp="txs nfp"
 alias pro="cd $projects"
+alias scr="cd $scripts"
+
+# projects
+alias amac="cd $projects/ansible-mac"
 
 # cpo
 alias tcpo="txs cpo"
@@ -187,8 +190,9 @@ alias glc="git log --pretty=%B"
 alias grbod="grb origin/develop"
 alias glast="glol -3"
 alias gwti="$scripts/worktree/worktree_init.sh"
-alias gwtn="ddev && cd .. && gfo && source $scripts/worktree/gwta.sh"
+alias gwtn="ddev && cd .. && gfo >/dev/null 2>&1 && source $scripts/worktree/gwta.sh"
 alias gwtc="$scripts/worktree/clear_worktree.sh"
+alias gwtp="gwt prune"
 alias cam="$scripts/worktree/git_commit.sh"
 
 # jira
@@ -244,8 +248,14 @@ bindkey '^s' pet-select
 alias chezmoic="cd $HOME/.local/share/chezmoi"
 alias chezmoir="chezmoi re-add"
 
+# glow
+alias readme="glow -p README.md"
+
+source $HOME/.zshrc_local
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
